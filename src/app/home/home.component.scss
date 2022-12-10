@@ -1,0 +1,17 @@
+.main-image{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.centered {
+  width: 80%;
+  margin: auto;
+}
+
+.title{
+  font-size: 60px;
+}

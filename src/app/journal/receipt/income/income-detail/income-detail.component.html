@@ -1,0 +1,50 @@
+<p-dialog header="{{ 'INCOME.INCOME' | translate }}({{receipt.id}}) {{parseJavaDate(receipt.dateTime) | date: 'M/d/yy, HH:mm'}}"
+          [(visible)]="display" [breakpoints]="{'960px': '90vw'}"
+          [style]="{width: '50vw'}"
+          [draggable]="false" [resizable]="false" [closable]="false" [modal]="true">
+  <div class="container">
+    <p-skeleton *ngIf="receiptLoading" height="6rem"></p-skeleton>
+    <div *ngIf="!receiptLoading" class="row justify-content-center text-center mt-2">
+      <div class="row">
+          <span>
+            <label><h3>
+              <b>{{ 'EXPENSE_DETAIL.PRICE' | translate }}: {{receipt.amount | currency: receipt.currency.currencyCode}}</b>
+              <span *ngIf="receipt.currency.currencyCode !== receipt.originCurrency.currencyCode">
+                ({{receipt.originAmount | currency: receipt.originCurrency.currencyCode}})
+              </span>
+            </h3></label>
+          </span>
+      </div>
+      <div class="row">
+          <span>
+            <h3><b>{{ 'EXPENSE_DETAIL.NOTE' | translate }}: </b>
+              <span *ngIf="!receipt.note">{{ 'EXPENSE_DETAIL.LACK_NOTE' | translate }}</span>
+              <span *ngIf="receipt.note">{{receipt.note}}</span>
+            </h3>
+          </span>
+      </div>
+      <div class="row justify-content-center text-center">
+        <h2><b>{{ 'EXPENSE_DETAIL.PRODUCTS' | translate }}:</b></h2>
+        <div *ngIf="receipt.products.length === 0" class="row justify-content-center"> <h3><b>Brak produktów na paragonie</b></h3></div>
+        <span *ngIf="receipt.products.length !== 0">
+          <div *ngFor="let product of receipt.products" class="row justify-content-center">
+            <p-card header="{{product.name}}" class="mb-2">
+              <div class="row">
+                <b>{{ 'EXPENSE_DETAIL.PRICE' | translate }}: {{product.price | currency: product.currency.currencyCode}} </b>
+              </div>
+              <div class="row">
+                <b>{{ 'EXPENSE_DETAIL.QUANTITY' | translate }}: {{product.quantity}}  </b>
+              </div>
+              <div class="row">
+                <b>{{ 'EXPENSE_DETAIL.SUM' | translate }}: {{product.sum | currency: product.currency.currencyCode}}</b>
+              </div>
+            </p-card>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button (click)="hide()" label="{{ 'EXPENSE_DETAIL.OK' | translate }}" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>

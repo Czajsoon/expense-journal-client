@@ -1,0 +1,17 @@
+.filters{
+  background-color: #eaeaea;
+  height: 100%;
+}
+
+.spacer{
+  padding: 25px;
+}
+
+:host ::ng-deep .expense{
+  background-color: rgba(255, 66, 66, 0.1) !important;
+}
+
+:host ::ng-deep .income{
+  background-color: rgba(172, 253, 85, 0.1) !important;
+}
+

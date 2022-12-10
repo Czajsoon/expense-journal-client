@@ -1,0 +1,32 @@
+.grid{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 2fr 4fr;
+  padding: 2em;
+  gap: 2em;
+}
+
+.filter-grid{
+  display: grid;
+  grid-template-columns: 100%;
+  padding: 0.5em;
+  gap: 2em;
+}
+
+.mobile-filter-grid{
+  display: grid;
+  grid-template-columns: 100%;
+  width: 100%;
+  padding: 0.5em;
+}
+
+.filter-grid-cell{
+  display: grid;
+  padding-bottom: 0.5em;
+}
+//.grid-mobile{
+//  display: grid;
+//  width: 100%;
+//  grid-template-columns: 100%;
+//  padding: 2em;
+//}

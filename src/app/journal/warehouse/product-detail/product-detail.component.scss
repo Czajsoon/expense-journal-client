@@ -1,0 +1,20 @@
+.grid-info{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  padding: 2em;
+  gap: 2em;
+}
+
+.grid-prices{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 100%;
+  padding: 2em;
+  gap: 2em;
+}
+
+.grid-cell{
+  display: grid;
+  padding-bottom: 0.5em;
+}

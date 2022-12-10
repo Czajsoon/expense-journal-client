@@ -1,0 +1,8 @@
+<ng-container *ngIf="loading$ | async">
+  <p-progressSpinner class="spinner" strokeWidth="4" animationDuration="1s"></p-progressSpinner>
+  <div class="overlay"></div>
+</ng-container>
+<app-navigation [account]="auth.user" [logged]="auth.logged">
+  <router-outlet></router-outlet>
+</app-navigation>
+

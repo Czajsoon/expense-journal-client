@@ -1,0 +1,133 @@
+<div class="d-none d-md-block">
+  <div class="income-grid container-fluid text-center justify-content-center">
+    <div class="income-cell" [formGroup]="incomeForm">
+      <p-card header="{{ 'INCOME.TITLE' | translate }}">
+        <div class="general-grid">
+          <label class="pb-3">{{ 'INCOME.DATE' | translate }}</label>
+          <p-calendar placeholder="{{ 'INCOME.DATE' | translate }}" dateFormat="dd.mm.yy," [showTime]="true" dataType="string"
+                      [showSeconds]="false" inputId="time" styleClass="w-100" formControlName="dateTime"
+                      inputStyleClass="text-center"></p-calendar>
+          <label class="pb-3">{{ 'INCOME.NOTE' | translate }}</label>
+          <input pInputTextarea placeholder="{{ 'INCOME.NOTE' | translate }}" formControlName="note">
+          <p-button label="{{ 'INCOME.ADD_INCOME' | translate }}" [disabled]="incomeForm.invalid || items.length === 0" (onClick)="addIncome()"></p-button>
+        </div>
+      </p-card>
+    </div>
+    <div class="income-cell">
+      <p-card [formGroup]="productForm" header="{{ 'INCOME.PRODUCT_FILTER.TITLE' | translate }}">
+        <div class="add-product-grid">
+          <div class="product-cell product">
+            <label class="pb-3">{{ 'INCOME.PRODUCT_FILTER.PRODUCT' | translate }}</label>
+            <p-dropdown [options]="products" placeholder="{{ 'INCOME.PRODUCT_FILTER.SELECT_PRODUCT' | translate }}"
+                        optionLabel="name" [filter]="true" filterBy="name" (onChange)="getPrices($event)"
+                        formControlName="productId" optionValue="id"
+                        [showClear]="true" styleClass="w-100"></p-dropdown>
+          </div>
+          <div class="product-cell">
+            <label class="pb-3">{{ 'INCOME.PRODUCT_FILTER.PRICE' | translate }}</label>
+            <p-dropdown [options]="prices" placeholder="{{ 'INCOME.PRODUCT_FILTER.SELECT_PRICE' | translate }}"
+                        optionLabel="price"
+                        formControlName="priceId" optionValue="id"
+                        [showClear]="true" styleClass="w-100"></p-dropdown>
+          </div>
+          <div class="product-cell">
+            <label class="pb-3">{{ 'INCOME.PRODUCT_FILTER.QUANTITY' | translate }}</label>
+            <p-inputNumber styleClass="w-100" formControlName="quantity" [maxFractionDigits]="2" placeholder="{{ 'INCOME.PRODUCT_FILTER.QUANTITY' | translate }}"></p-inputNumber>
+          </div>
+          <div class="product-cell submit">
+            <p-button label="{{ 'INCOME.ADD_PRODUCT' | translate }}" [disabled]="productForm.invalid" (onClick)="addProduct()"></p-button>
+          </div>
+        </div>
+      </p-card>
+    </div>
+    <div class="income-cell products" [formGroup]="incomeForm">
+      <div  class="row text-center justify-content-center" formArrayName="items">
+        <div class="col-md-3 col-12 mb-3 income-cell products" [formGroupName]="i" *ngFor="let item of items.controls ;let i = index">
+          <p-card header="{{item.value.name}}">
+            <div class="row">
+              <h3>{{ 'INCOME.PRODUCT_FILTER.PRICE' | translate }}: {{item.value.price | currency: this.auth.defaultCurrency}}</h3>
+            </div>
+            <div class="row">
+              <h3>{{ 'INCOME.PRODUCT_FILTER.QUANTITY' | translate }}: {{item.value.quantity}}</h3>
+            </div>
+            <div class="row justify-content-center">
+              <button pButton pRipple type="button" (click)="deleteProduct(i)"
+                      icon="pi pi-trash"
+                      class="p-button-rounded p-button-danger"></button>
+            </div>
+          </p-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-block d-sm-block d-md-none">
+  <div class="col">
+    <p-accordion [formGroup]="incomeForm">
+      <p-accordionTab header="{{ 'EXPENSE.GENERAL.TITLE' | translate }}" [selected]="true">
+        <div class="general-grid">
+          <label class="pb-3">{{ 'INCOME.DATE' | translate }}</label>
+          <p-calendar placeholder="{{ 'INCOME.DATE' | translate }}" dateFormat="dd.mm.yy," [showTime]="true" dataType="string"
+                      [showSeconds]="false" inputId="time" styleClass="w-100" formControlName="dateTime"
+                      inputStyleClass="text-center"></p-calendar>
+          <label class="pb-3">{{ 'INCOME.NOTE' | translate }}</label>
+          <input pInputTextarea placeholder="{{ 'INCOME.NOTE' | translate }}" formControlName="note">
+          <p-button label="{{ 'INCOME.ADD_INCOME' | translate }}" [disabled]="incomeForm.invalid || items.length === 0" (onClick)="addIncome()"></p-button>
+        </div>
+      </p-accordionTab>
+    </p-accordion>
+  </div>
+  <div class="col">
+    <p-accordion>
+      <p-accordionTab header="{{ 'EXPENSE.PRODUCT.TITLE' | translate }}" [selected]="false">
+        <div [formGroup]="productForm" class="income-cell">
+
+            <div class="add-product-grid-mobile">
+              <div class="product-cell">
+                <label class="pb-3">{{ 'INCOME.PRODUCT_FILTER.PRODUCT' | translate }}</label>
+                <p-dropdown [options]="products" placeholder="{{ 'INCOME.PRODUCT_FILTER.SELECT_PRODUCT' | translate }}"
+                            optionLabel="name" [filter]="true" filterBy="name" (onChange)="getPrices($event)"
+                            formControlName="productId" optionValue="id"
+                            [showClear]="true" styleClass="w-100"></p-dropdown>
+              </div>
+              <div class="product-cell">
+                <label class="pb-3">{{ 'INCOME.PRODUCT_FILTER.PRICE' | translate }}</label>
+                <p-dropdown [options]="prices" placeholder="{{ 'INCOME.PRODUCT_FILTER.SELECT_PRICE' | translate }}"
+                            optionLabel="price"
+                            formControlName="priceId" optionValue="id"
+                            [showClear]="true" styleClass="w-100"></p-dropdown>
+              </div>
+              <div class="product-cell">
+                <label class="pb-3">{{ 'INCOME.PRODUCT_FILTER.QUANTITY' | translate }}</label>
+                <p-inputNumber styleClass="w-100" formControlName="quantity" [maxFractionDigits]="2" placeholder="{{ 'INCOME.PRODUCT_FILTER.QUANTITY' | translate }}"></p-inputNumber>
+              </div>
+              <div class="product-cell">
+                <p-button label="{{ 'INCOME.ADD_PRODUCT' | translate }}" [disabled]="productForm.invalid" (onClick)="addProduct()"></p-button>
+              </div>
+            </div>
+        </div>
+      </p-accordionTab>
+    </p-accordion>
+  </div>
+  <div class="income-cell products" [formGroup]="incomeForm">
+    <div  class="row text-center justify-content-center" formArrayName="items">
+      <div class="col-md-3 col-12 mb-3 income-cell products" [formGroupName]="i" *ngFor="let item of items.controls ;let i = index">
+        <p-card header="{{item.value.name}}">
+          <div class="row">
+            <h3>{{ 'INCOME.PRODUCT_FILTER.PRICE' | translate }}: {{item.value.price | currency: this.auth.defaultCurrency}}</h3>
+          </div>
+          <div class="row">
+            <h3>{{ 'INCOME.PRODUCT_FILTER.QUANTITY' | translate }}: {{item.value.quantity}}</h3>
+          </div>
+          <div class="row justify-content-center">
+            <button pButton pRipple type="button" (click)="deleteProduct(i)"
+                    icon="pi pi-trash"
+                    class="p-button-rounded p-button-danger"></button>
+          </div>
+        </p-card>
+      </div>
+    </div>
+  </div>
+</div>
+<p-toast class="d-none d-md-block" position="top-right"></p-toast>
+<p-toast class="d-block d-md-none" styleClass="toast-mobile" position="top-center"></p-toast>

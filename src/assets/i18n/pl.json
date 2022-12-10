@@ -1,0 +1,307 @@
+{
+  "pl": "Polski",
+  "en": "Angielski",
+  "CONFIRMATION": "Potwierdź operację",
+  "APP_NAME": "Dziennik wydatków",
+  "CHANGED_PASSWORD_TITLE": "Zmiana hasła",
+  "CHANGED_PASSWORD": "Zmiana hasła powiodła się!",
+  "CHANGED_EMAIL_TITLE": "Zmiana email",
+  "CHANGED_EMAIL": "Zmiana email powiodła się!",
+  "NAVIGATION":{
+    "HOME": "Strona domowa",
+    "APPLICATION": "Twój dziennik",
+    "HELP": "Pomoc",
+    "LOGIN": "Zaloguj się",
+    "SETTINGS": "Ustawienia",
+    "REGISTER": "Zarejestruj się",
+    "LANGUAGE": "Języki",
+    "CLOSE": "Zamknij",
+    "LOGOUT": "Wyloguj się"
+  },
+  "LOGIN": {
+    "TITLE": "Zaloguj się",
+    "LOGIN": "Login",
+    "LOGIN_REQUIRED": "Pole login jest wymagane",
+    "PASSWORD": "Hasło",
+    "PASSWORD_REQUIRED": "Pole hasło jest wymagane",
+    "PASSWORD_MIN_LENGTH": "Pole hasło wymaga minimalnie 8 znaków",
+    "REGISTER_BUTTON": "Zarejestruj się",
+    "LOGIN_BUTTON": "Zaloguj się",
+    "ERROR": "Wystąpił błąd",
+    "REGISTER_INFO": "Nie masz jeszcze konta? ",
+    "REGISTER_LINK": "Zarejestruj się"
+  },
+  "ACCOUNT":{
+    "ACTIVATION_SUCCESS": {
+      "SUMMARY": "Konto aktywowane",
+      "DETAIL": "Twoje konto zostało aktywowane spróbuj się zalogować"
+    }
+  },
+  "REGISTER": {
+    "TITLE": "Rejestracja",
+    "REGISTER": "Zarejestruj się",
+    "LOGIN": "Login",
+    "NAME": "Imię",
+    "LASTNAME": "Nazwisko",
+    "COMPANY_NAME": "Nazwa firmy",
+    "EMAIL": "Email",
+    "EMAIL_ERROR": "Niepoprawny email",
+    "FIELD_REQUIRED": "To pole jest wymagane*.",
+    "MIN_5_CHARS": "To pole wymaga minimalnie 5 znaków*.",
+    "MIN_8_CHARS": "To pole wymaga minimalnie 8 znaków*.",
+    "CURRENCY_CODE" : "Waluta",
+    "PASSWORD": "Hasło",
+    "REPEATED_PASSWORD": "Powtórz hasło",
+    "NOT_MATCH_PASSWORD": "Hasła się nie zgadzają*.",
+    "LOGIN_INFO": "Masz już konto? ",
+    "LOGIN_LINK": "Zaloguj się",
+    "ERROR": "Wystąpił błąd",
+    "SUCCESS": "Rejestracja powiodła się"
+  },
+  "HOME": {
+    "TITLE": "Zacznij nadzorować swoje wydatki i przychody! Ile? Kiedy?",
+    "INFO_1": "Dodaj swoje wydatki oraz przychody ze swoich produktów a my bedziemy generować raporty wydatków i przychodów w miesiącu,",
+    "INFO_2": "bedziesz wiedzieć na co wydajesz pieniądze i ile posiadasz wpływów ze swoich produktów.",
+    "INFO_3": "Z nami będziesz mieć pełną kontrolę nad swoim budżetem firmowym lub domowym!",
+    "INFO_4": "Nie masz jeszcze konta?",
+    "INFO_5": "Załóż konto!",
+    "INFO_6": "I zacznij kontrolować swój budżet już teraz!"
+  },
+  "LANGUAGE": {
+    "TITLE": "Wybierz język aplikacji",
+    "INFORMATION": "W trosce o Was aplikacja posiada tłumaczenia które można wybrać poniżej."
+  },
+  "AUTHOR": "Autor aplikacji: ",
+  "HELP": {
+    "TITLE": "W razie potrzeby służymy pomocą drogą mailową, opisz swój przypadek a my odpiszemy na maila.",
+    "EMAIL": "Twój email",
+    "FIELD_REQUIRED": "To pole jest wymagane*.",
+    "ERROR_MAIL": "To pole nie spełnia wymagań email*.",
+    "SUBJECT": "Temat wiadomości",
+    "FIELD_MIN_10_CHARS": "To pole wymaga minimalnie 10 znaków*.",
+    "FIELD_MAX_50_CHARS": "To pole wymaga maksymalnie 50 znaków*.",
+    "FIELD_MAX_200_CHARS": "To pole wymaga maksymalnie 200 znaków*.",
+    "MESSAGE": "Treść wiadomości",
+    "SEND": "Wyślij",
+    "TOAST_TITLE": "Czy napewno chcesz wysłać tą wiadomość?",
+    "TOAST_SUMMARY": "Wiadomość wysłana",
+    "TOAST_DETAIL": "Pomyślnie wysłano wiadomość do administratora!"
+  },
+  "JOURNAL": {
+    "FILTERS": "Filtry",
+    "INCOMES": "Zysk w tym miesiącu: ",
+    "EXPENSES": "Wydatki w tym miesiącu: ",
+    "INCOMES_EXPENSES": "Zysk i Wydatek",
+    "BALANCE": "Bilans: ",
+    "FILTER": {
+      "DATE_RANGE": "Wybierz zakres dat",
+      "DATE_RANGE_INFO": "Zakres dat",
+      "EXPENSE": "Wydatek",
+      "INCOME": "Dochód",
+      "EXPENSE_TYPE_INFO": "Wybierz typ",
+      "EXPENSE_TYPE": "Typ",
+      "SELECT_PAYMENT_METHOD": "Wybierz metodę płatności",
+      "PAYMENT_METHOD": "Metoda płatności",
+      "SELECT_SHOP_METHOD": "Wybierz metodę zakupu",
+      "SHOP_METHOD": "Metoda zakupu",
+      "AMOUNT_RANGE": "Zakres kwoty"
+    },
+    "TABLE": {
+      "DATE": "Data",
+      "METHOD": "Forma",
+      "QUANTITY": "Ilość produktów",
+      "PRICE": "Cena",
+      "ACTIONS": "Akcje"
+    },
+    "DELETE_TITLE": "Czy jesteś pewien że chcesz usunąć ten paragon?",
+    "DELETE_SUCCESS": "Usunięto paragon",
+    "DELETE_FAIL": "Nie udało się usunąc paragonu",
+    "SEARCH": "Szukaj",
+    "EDIT_TOOLTIP": "Edytuj",
+    "DETAIL_TOOLTIP": "Szczegóły",
+    "DELETE_TOOLTIP": "Usuń"
+  },
+  "PAYMENT_METHOD": {
+    "CHANGED": "Zmiana nazwy płatności powiodła się",
+    "ADDED": "Pomyślnie dodano metode płatności",
+    "DELETED": "Metoda płatności została usunięta",
+    "ADD": "Dodaj nową metodę płatności",
+    "NAME_INFO": "Nazwa metody płatności*",
+    "ADD_BUTTON": "Dodaj",
+    "METHOD_NAMES": "Twoje metody płatności",
+    "NAME": "Metoda płatności"
+  },
+  "SHOP_METHOD": {
+    "CHANGED": "Zmiana nazwy zakupów powiodła się",
+    "ADDED": "Pomyślnie dodano metode zakupów",
+    "DELETED": "Metoda zakupów została usunięta",
+    "ADD": "Dodaj nową metodę zakupów",
+    "NAME_INFO": "Nazwa metody zakupów*",
+    "ADD_BUTTON": "Dodaj",
+    "METHOD_NAMES": "Twoje metody zakupów",
+    "NAME": "Metoda zakupów"
+  },
+  "EXPENSE": {
+    "GENERAL": {
+      "TITLE": "Ogólne dane",
+      "DATE": "Data zakupów",
+      "PAYMENT_METHOD": "Metoda płatności",
+      "SELECT_PAYMENT_METHOD": "Wybiezr metodę płatności",
+      "SHOP_METHOD": "Metoda zakupów",
+      "SELECT_SHOP_METHOD": "Wybierz metodę zakupów",
+      "PRICE_AND_CURRENCY": "Cena i waluta",
+      "PRICE": "Cena",
+      "CURRENCY": "Waluta",
+      "NOTE": "Notatka",
+      "ADD": "Dodaj wydatek",
+      "EDIT": "Edytuj",
+      "EDIT_SUCCESS": "Wydatek został zaktualizowany",
+      "EDIT_FAILURE": "Wystąpił błąd podczas edycji"
+    },
+    "PRODUCT":{
+      "TITLE": "Dodaj produkt",
+      "NAME": "Nazwa produktu",
+      "QUANTITY": "Ilość produktu",
+      "PRICE": "Cena produktu",
+      "CURRENCY": "Waluta produktu",
+      "ADD": "Dodaj produkt"
+    },
+    "NO_PRODUCTS": "Tutaj wyświetlają sie produkty w paragonie, aktualnie nie ma ani jednego.",
+    "PRODUCT_NUMBER": "Produkt #{{number}}",
+    "ADDED": "Pomyślnie dodano wydatek",
+    "ERROR": "Wystąpił błąd spróbuj ponownie później"
+  },
+  "INCOME": {
+    "TITLE": "Ogólne dane",
+    "DATE": "Data zysku",
+    "PRODUCT_FILTER": {
+      "TITLE": "Dodaj produkt",
+      "PRICE": "Cena produktu",
+      "SELECT_PRICE": "Wybierz cenę produktu",
+      "PRODUCT": "Produkt",
+      "SELECT_PRODUCT": "Wybierz produkt",
+      "QUANTITY": "Ilość podanego produktu"
+    },
+    "NOTE": "Notatka",
+    "ADD_INCOME": "Dodaj zysk",
+    "ADD_INCOME_SUCCESS": "Zysk dodany pomyślnie",
+    "ADD_PRODUCT": "Dodaj produkt",
+    "INCOME": "Zysk"
+  },
+  "EXPENSE_DETAIL": {
+    "EXPENSE": "Wydatek",
+    "PRICE": "Cena",
+    "PAYMENT_FORM": "Forma płatności",
+    "SHOP_FORM": "Forma zakupów",
+    "NOTE": "Notatka",
+    "LACK_NOTE": "Brak notatki",
+    "PRODUCTS": "Produkty",
+    "QUANTITY": "Ilość",
+    "SUM": "Suma",
+    "OK": "Zamknij"
+  },
+  "ADD_PRODUCT": {
+    "TITLE": "Dane ogólne",
+    "PRODUCT_NAME": "Nazwa produktu",
+    "TIME": "Rozlicznie",
+    "PRICE": "Cena",
+    "ADD_PRICE": "Dodaj cenę",
+    "ADD": "Dodaj produkt",
+    "PRICE_IT": "Cena #{{price}}",
+    "ADD_PRODUCT_SUCCESS": "Dodanie produktu powiodło się!",
+    "NO_PRICES": "Nie ma zdefiniowanych cen dla tego produktu.",
+    "EDIT": "Edytuj"
+  },
+  "WAREHOUSE": {
+    "ACTIONS": "Akcje",
+    "NAME": "Nazwa produktu",
+    "TYPE": "Typ",
+    "PRICES": "Ilość zdefiniowanych cen",
+    "PRICE": "Cena",
+    "OPTIONS": "Dodatkowe opcje",
+    "ADD_PRODUCT": "Dodaj produkt",
+    "FILTERING": "Filtrowanie",
+    "PRODUCT_NAME": "Nazwa produktu",
+    "PERIOD_TYPE": "Typ rozlicznia",
+    "PRODUCT_TYPE": "Typ produktu",
+    "PRODUCT_ACTIVE": "Czy produkt archiwalny",
+    "SEARCH": "Szukaj",
+    "CLEAR_FILTERS": "Wyczyść filtry",
+    "DELETE_TOOLTIP": "Usuń produkt",
+    "EDIT_TOOLTIP": "Edytuj produkt",
+    "DETAIL_TOOLTIP": "Szczegóły produktu",
+    "DELETE_TITLE": "Czy jesteś pewien że chcesz usunąć ten produkt?",
+    "DELETE_SUCCESS": "Usunięto produkt",
+    "DELETE_FAIL": "Nie udało się usunąć produktu",
+    "EDIT_SUCCESS": "Zminiono produkt",
+    "EDIT_FAIL": "Nie udało się zmienić produkt",
+    "NO_PRODUCTS": "Brak Produktów"
+  },
+  "SETTINGS": {
+    "TITLE": "Ustawienia użytkownika",
+    "AVATAR": {
+      "CHANGE": "Zmień awatar",
+      "TITLE": "Zmień awatar",
+      "CANCEL": "Anuluj",
+      "AVATAR_UPLOADED": "Zaktualizowano avatar."
+    },
+    "EMAIL": {
+      "TITLE": "Zmień email",
+      "NEW_EMAIL": "Wpisz nowy email",
+      "CANCEL": "Anuluj",
+      "CHANGE": "Zmień email",
+      "SUCCESS": "Wysłaliśmy email z linkiem potwierdzającym na podany email"
+    },
+    "PASSWORD": {
+      "TITLE": "Zmień hasło",
+      "PASSWORD": "Aktualne hasło",
+      "NEW_PASSWORD": "Nowe hasło",
+      "REPEAT_PASSWORD": "Powtórz nowe hasło",
+      "CANCEL": "Anuluj",
+      "CHANGE": "Zmień hasło",
+      "SUCCESS": "Hasło zostało zmienione"
+    },
+    "NAME": "Imię",
+    "LASTNAME": "Nazwisko",
+    "COMPANY_NAME": "Nazwa firmy",
+    "SAVE": "Zapisz zmiany",
+    "CHANGED": "Zmiany zostały zapisane"
+  },
+  "REPORT": {
+    "DIALOG": {
+      "TITLE": "Generuj raport miesięczny",
+      "GENERATE": "Generuj",
+      "CANCEL": "Anuluj",
+      "MONTH": "Wybierz miesiąc i rok"
+    },
+    "TITLE": "Raport przychodów/wydatków",
+    "INCOMES": "Przychody",
+    "EXPENSES": "Wydatki",
+    "TITLE_HEADER": "Sczegółowe informacje",
+    "INCOMES_SUM": "Suma przychodów",
+    "EXPENSES_SUM": "Suma wydatków",
+    "NO_DATA_FOR_DIAGRAM": "Nie posiadasz żadnych danych do wygenerowania tego wykresu",
+    "BY_TYPE_OF_PRODUCT": "Dane na podstawie typie produktu",
+    "BY_TYPE_OF_PERIOD": "Dane na podstawie typie okresu",
+    "BY_PRODUCT": "Dane na podstawie produktu",
+    "BY_PAYMENT_METHOD": "Dane na typu płatności",
+    "BY_SHOP_METHOD": "Dane na typu zakupów",
+    "BALANCE": "Balans w tym miesiącu: "
+  },
+  "UNAUTHORIZED": {
+    "INFO": "Nie masz dostępu do tej strony. Najpierw zaloguj się lub stwórz konto",
+    "LOGIN": "Zaloguj się",
+    "REGISTER": "Stwórz konto",
+    "HOME": "Strona domowa"
+  },
+  "PAGE_NOT_FOUND": {
+    "INFO": "Chyba się zgubiłeś?",
+    "HOME": "Strona domowa"
+  },
+  "FROM": "Od",
+  "TO": "Do",
+  "YES": "Tak",
+  "NO": "Nie",
+  "ERROR": "Wystąpił błąd",
+  "SUCCESS": "Operacja zakończyła się pomyślnie"
+}

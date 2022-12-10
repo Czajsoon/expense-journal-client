@@ -1,0 +1,48 @@
+mat-progress-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.spinner{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99999999;
+}
+
+:host ::ng-deep .spinner .p-progress-spinner-circle {
+  animation: spinner 2s ease-in-out infinite;
+  z-index: 99999999;
+}
+
+@keyframes spinner {
+  100%,
+  0% {
+    stroke: #003860;
+  }
+  40% {
+    stroke: #004b83;
+  }
+  66% {
+    stroke: #0071c7;
+  }
+  80%,
+  90% {
+    stroke: #1585d5;
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  backdrop-filter: blur(2px);
+}
+

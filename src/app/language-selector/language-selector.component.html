@@ -1,0 +1,19 @@
+<div class="container main flex justify-content-center align-items-center">
+  <div class=" row flex justify-content-center align-items-center mt-5">
+    <div class="col justify-content-center text-center">
+      <h1><b>{{ 'LANGUAGE.TITLE' | translate }}</b></h1>
+      <br>
+      <h1>{{ 'LANGUAGE.INFORMATION' | translate }}</h1>
+      <br>
+      <p-dropdown [options]="languages" [(ngModel)]="language" [style]="{'width':'100%'}"
+                  optionLabel="name" (onChange)="onChangeLanguage(language.code)"></p-dropdown>
+    </div>
+    <div class="col d-none d-md-block">
+      <img src="assets/language.svg"
+           class="img-fluid" alt="login image">
+    </div>
+  </div>
+</div>
+<p-toast class="d-none d-md-block" position="top-right"></p-toast>
+<p-toast class="d-block d-md-none" styleClass="toast-mobile" position="top-center"></p-toast>
+

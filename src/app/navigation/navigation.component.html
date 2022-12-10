@@ -1,0 +1,88 @@
+<div class="nav navigation-bar">
+  <mat-toolbar class="navbar">
+    <div class="d-block d-md-none">
+      <button mat-icon-button class="example-icon" (click)="drawer.toggle()">
+        <mat-icon class="burger">menu</mat-icon>
+      </button>
+    </div>
+    <span class="title">{{ 'APP_NAME' | translate }}</span>
+    <div class="d-none d-md-block">
+      <span style="margin-left: 6px"></span>
+      <button pButton class="simple-button p-button-text" label="{{ 'NAVIGATION.HOME' | translate}}"
+              routerLink="{{homeUrl}}" routerLinkActive="activate-route" (click)="goToHome()" ></button>
+      <span *ngIf="logged" style="margin-left: 6px"></span>
+      <button *ngIf="logged" pButton class="simple-button p-button-text" label="{{ 'NAVIGATION.APPLICATION' | translate}}"
+              routerLink="{{journalUrl}}" routerLinkActive="activate-route" (click)="goToJournal()"></button>
+      <span style="margin-left: 6px"></span>
+      <button pButton class="simple-button p-button-text" label="{{ 'NAVIGATION.HELP' | translate}}"
+              routerLink="{{helpUrl}}" routerLinkActive="activate-route" (click)="goToHelp()"></button>
+      <span style="margin-left: 6px"></span>
+      <button *ngIf="logged" pButton class="simple-button p-button-text" label="{{ 'NAVIGATION.SETTINGS' | translate}}"
+              routerLink="{{settingsUrl}}" routerLinkActive="activate-route" (click)="goToSettings()"></button>
+      <span style="margin-left: 6px"></span>
+      <button pButton class="simple-button p-button-text" label="{{ 'NAVIGATION.LANGUAGE' | translate}}"
+              routerLink="{{languagesUrl}}" routerLinkActive="activate-route" (click)="goToLanguageSelector()"></button>
+    </div>
+    <span class="example-spacer"></span>
+    <p-avatar *ngIf="logged" image="{{this.auth.avatarUrl}}" styleClass="mt-1" size="large" shape="circle"></p-avatar>
+    <span *ngIf="logged" style="margin-left: 8px"></span>
+    <button *ngIf="!logged" pButton pRipple class="credential-button p-button-sm d-none d-sm-block" label="{{ 'NAVIGATION.LOGIN' | translate}}"
+            routerLink="{{loginUrl}}" routerLinkActive="activate-login" (click)="goToLogin()"></button>
+    <span style="margin-left: 8px"></span>
+    <button *ngIf="!logged" pButton pRipple class="credential-button d-none d-sm-block" label="{{ 'NAVIGATION.REGISTER' | translate}}"
+            routerLink="{{registerUrl}}" routerLinkActive="activate-login" (click)="goToRegister()"></button>
+    <button *ngIf="logged" pButton pRipple class="credential-button d-none d-sm-block" label="{{ 'NAVIGATION.LOGOUT' | translate}}"
+            (click)="logOut()"></button>
+  </mat-toolbar>
+  <mat-drawer-container class="example-container">
+    <mat-drawer #drawer class="example-sidenav justify-content-center" mode="over">
+      <div *ngIf="logged" class="col">
+        <div class="row justify-content-center text-center mt-2">
+          <h2  style="color: #d7dce6">{{account.name + " " + account.lastname + ' (' + account.companyName + ')'}}</h2>
+        </div>
+      </div>
+      <div class="col">
+        <div class="row justify-content-center mt-2">
+          <button pButton pRipple class="mobile-button p-button-text" label="{{ 'NAVIGATION.HOME' | translate}}"
+                  routerLink="{{homeUrl}}" routerLinkActive="activate-route" (click)="goToHome(); drawer.toggle()"></button>
+        </div>
+        <div *ngIf="logged" class="row justify-content-center mt-2">
+          <button pButton pRipple class="mobile-button p-button-text" label="{{ 'NAVIGATION.APPLICATION' | translate}}"
+                  routerLink="{{journalUrl}}" routerLinkActive="activate-route" (click)="goToJournal(); drawer.toggle()"></button>
+        </div>
+        <div class="row justify-content-center mt-2">
+          <button pButton pRipple class="mobile-button p-button-text" label="{{ 'NAVIGATION.HELP' | translate}}"
+                  routerLink="{{helpUrl}}" routerLinkActive="activate-route" (click)="goToHelp(); drawer.toggle()"></button>
+        </div>
+        <div class="row justify-content-center mt-2">
+          <button pButton pRipple class="mobile-button p-button-text" label="{{ 'NAVIGATION.LANGUAGE' | translate}}"
+                  routerLink="{{languagesUrl}}" routerLinkActive="activate-route" (click)="goToLanguageSelector(); drawer.toggle()"></button>
+        </div>
+        <div *ngIf="!logged" class="row justify-content-center ">
+          <button pButton pRipple class="mobile-button p-button-text mt-2" label="{{ 'NAVIGATION.LOGIN' | translate}}"
+                  routerLink="{{loginUrl}}" routerLinkActive="activate-route" (click)="goToLogin(); drawer.toggle()"></button>
+        </div>
+        <div *ngIf="!logged" class="row justify-content-center ">
+          <button pButton pRipple class="mobile-button p-button-text mt-2" label="{{ 'NAVIGATION.REGISTER' | translate}}"
+                  routerLink="{{registerUrl}}" routerLinkActive="activate-route" (click)="goToRegister(); drawer.toggle()"></button>
+        </div>
+        <div *ngIf="logged" class="row justify-content-center mt-2">
+          <button pButton pRipple class="mobile-button p-button-text" label="{{ 'NAVIGATION.SETTINGS' | translate}}"
+                  routerLink="{{settingsUrl}}" routerLinkActive="activate-route" (click)="goToSettings(); drawer.toggle()"></button>
+        </div>
+        <div *ngIf="!logged" class="row justify-content-center ">
+          <button pButton pRipple class="mobile-button p-button-text mt-2" label="{{ 'NAVIGATION.LOGOUT' | translate}}"
+                  (click)="logOut(); drawer.toggle()"></button>
+        </div>
+        <div class="row  justify-content-center mt-2">
+          <button pButton pRipple class="w-75 mobile-button position-absolute bottom-0 mb-3 p-button-text" label="{{ 'NAVIGATION.CLOSE' | translate}}"
+                  (click)="drawer.toggle()"></button>
+        </div>
+      </div>
+    </mat-drawer>
+
+    <ng-content ></ng-content>
+    <app-speedial [logged]="logged" style="z-index: 99999 !important;"></app-speedial>
+  </mat-drawer-container>
+</div>
+

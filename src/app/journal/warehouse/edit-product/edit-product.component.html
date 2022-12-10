@@ -1,0 +1,89 @@
+<div class="container-fluid justify-content-center text-center mt-4 d-none d-md-block">
+  <div class="row">
+    <div class="col-7">
+      <p-card header="{{ 'ADD_PRODUCT.TITLE' | translate}}" [formGroup]="productForm">
+        <div class="row">
+          <div class="col">
+            <input pInputText placeholder="{{ 'ADD_PRODUCT.PRODUCT_NAME' | translate}}" formControlName="name">
+          </div>
+          <div class="col">
+            <p-dropdown [options]="type" formControlName="period" [filter]="true" filterBy="translation"
+                        placeholder="{{ 'ADD_PRODUCT.TIME' | translate}}" optionValue="name"
+                        optionLabel="translation" styleClass="w-100" [showClear]="true"></p-dropdown>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <p-button label="{{ 'ADD_PRODUCT.EDIT' | translate}}" (click)="edit()" [disabled]="productForm.invalid || prices.length === 0"></p-button>
+        </div>
+      </p-card>
+    </div>
+    <div class="col-5">
+      <p-card header="{{ 'ADD_PRODUCT.ADD_PRICE' | translate}}">
+        <div class="row">
+          <div class="col-7">
+            <p-inputNumber [(ngModel)]="price" placeholder="{{ 'ADD_PRODUCT.PRICE' | translate}}"></p-inputNumber>
+          </div>
+          <div class="col-5">
+            <p-button label="{{ 'ADD_PRODUCT.ADD_PRICE' | translate}}" [disabled]="price === null && price === 0" (click)="addPrice(price)"></p-button>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</div>
+<div class="d-block d-sm-block d-md-none">
+  <div class="col">
+    <p-accordion [formGroup]="productForm">
+      <p-accordionTab header="{{ 'ADD_PRODUCT.TITLE' | translate}}" [selected]="true">
+        <div class="row">
+          <div class="col-6">
+            <input pInputText class="w-100" placeholder="{{ 'ADD_PRODUCT.PRODUCT_NAME' | translate}}" formControlName="name">
+          </div>
+          <div class="col-6">
+            <p-dropdown [options]="type" formControlName="period" [filter]="true" filterBy="translation"
+                        placeholder="{{ 'ADD_PRODUCT.TIME' | translate}}" optionValue="name"
+                        optionLabel="translation" styleClass="w-100" [showClear]="true"></p-dropdown>
+          </div>
+        </div>
+        <div class="row mt-4 justify-content-center text-center">
+          <p-button label="{{ 'ADD_PRODUCT.EDIT' | translate}}" (click)="edit()" [disabled]="productForm.invalid || prices.length === 0"></p-button>
+        </div>
+      </p-accordionTab>
+    </p-accordion>
+  </div>
+  <div class="col">
+    <p-accordion>
+      <p-accordionTab header="{{ 'ADD_PRODUCT.ADD_PRICE' | translate}}" [selected]="false">
+        <div class="row">
+          <p-inputNumber styleClass="w-100" [(ngModel)]="price" placeholder="{{ 'ADD_PRODUCT.PRICE' | translate}}"></p-inputNumber>
+        </div>
+        <div class="row text-center mt-3">
+          <p-button label="{{ 'ADD_PRODUCT.ADD_PRICE' | translate}}" [disabled]="price === null || price === 0" (click)="addPrice(price)"></p-button>
+        </div>
+      </p-accordionTab>
+    </p-accordion>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row mt-3" [formGroup]="productForm">
+    <div class="row" *ngIf="prices.length !== 0" formArrayName="prices">
+      <div class="col-md-3 col-12 mb-3" *ngFor="let item of prices.controls ;let i = index">
+        <p-card [formGroupName]="i" header="{{ 'ADD_PRODUCT.PRICE_IT' | translate : {price: i+1} }}">
+          <div class="row text-center">
+            <p>{{ 'ADD_PRODUCT.PRICE' | translate}}: {{item.value | currency: this.auth.defaultCurrency}}</p>
+          </div>
+          <div class="row justify-content-center">
+            <button pButton pRipple type="button" (click)="deletePrice(i)"
+                    icon="pi pi-trash"
+                    class="p-button-rounded p-button-danger"></button>
+          </div>
+        </p-card>
+      </div>
+    </div>
+    <div class="row text-center" *ngIf="prices.length === 0">
+      <h3><b>{{ 'ADD_PRODUCT.NO_PRICES' | translate }}</b></h3>
+    </div>
+  </div>
+</div>
+<p-toast class="d-none d-md-block" position="top-right"></p-toast>
+<p-toast class="d-block d-md-none" styleClass="toast-mobile" position="top-center"></p-toast>

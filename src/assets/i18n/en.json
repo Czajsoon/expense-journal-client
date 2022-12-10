@@ -1,0 +1,308 @@
+{
+  "pl": "Polish",
+  "en": "English",
+  "CONFIRMATION": "Confirm operation",
+  "APP_NAME": "Expense Journal",
+  "CHANGED_PASSWORD_TITLE": "Password change",
+  "CHANGED_PASSWORD": "Password has been changed!",
+  "CHANGED_EMAIL_TITLE": "Email change",
+  "CHANGED_EMAIL": "Email has been changed!",
+  "NAVIGATION":{
+    "HOME": "Home",
+    "APPLICATION": "Your journal",
+    "HELP": "Help",
+    "LOGIN": "Login",
+    "SETTINGS": "Settings",
+    "REGISTER": "Register",
+    "LANGUAGE": "Language",
+    "CLOSE": "Close",
+    "LOGOUT": "Logout"
+  },
+  "LOGIN": {
+    "TITLE": "Login",
+    "LOGIN": "Login",
+    "LOGIN_REQUIRED": "Field login is required",
+    "PASSWORD": "Password",
+    "PASSWORD_REQUIRED": "Field password is required",
+    "PASSWORD_MIN_LENGTH": "Field password accepts minimum 8 characters",
+    "REGISTER_BUTTON": "Register",
+    "LOGIN_BUTTON": "Login",
+    "ERROR": "Error",
+    "REGISTER_INFO": "You dont have an account yet? ",
+    "REGISTER_LINK": "Register"
+  },
+  "ACCOUNT":{
+    "ACTIVATION_SUCCESS": {
+      "SUMMARY": "Your account has been activated",
+      "DETAIL": "You can now try to log in"
+    }
+  },
+  "REGISTER": {
+    "TITLE": "Register",
+    "REGISTER": "Register",
+    "LOGIN": "Login",
+    "NAME": "Name",
+    "LASTNAME": "Lastname",
+    "COMPANY_NAME": "Company name",
+    "EMAIL": "Email",
+    "EMAIL_ERROR": "Invalid email",
+    "FIELD_REQUIRED": "This field is required*.",
+    "MIN_5_CHARS": "This field requires 5 characters*.",
+    "MIN_8_CHARS": "This field requires 8 characters*.",
+    "CURRENCY_CODE" : "Currency",
+    "PASSWORD": "Password",
+    "REPEATED_PASSWORD": "Repeat password",
+    "NOT_MATCH_PASSWORD": "Password not match*.",
+    "LOGIN_INFO": "Do you have account? ",
+    "LOGIN_LINK": "Log in",
+    "ERROR": "Error occurred",
+    "SUCCESS": "Registration done"
+  },
+  "HOME": {
+    "TITLE": "Start monitoring your expenses and income! How much? When?",
+    "INFO_1": "Add your expenses and income from your products and we will generate reports of expenses and revenues for the month,",
+    "INFO_2": "you will know what you spend your money on and how much income you have from your products.",
+    "INFO_3": "With us you will have full control over your company or home budget!",
+    "INFO_4": "You dont have an account yet?",
+    "INFO_5": "Create an account!",
+    "INFO_6": "And start controlling your budget now!"
+  },
+  "LANGUAGE": {
+    "TITLE": "Select the language of the application",
+    "INFORMATION": "For the sake of you, the application has translations that can be selected below."
+  },
+  "AUTHOR": "Application author: ",
+  "HELP": {
+    "TITLE": "If necessary, we provide assistance via e-mail, describe your case and we will reply to the e-mail.",
+    "EMAIL": "Your e-mail",
+    "FIELD_REQUIRED": "This field is required*.",
+    "ERROR_MAIL": "This field does not meet the email requirements *.",
+    "SUBJECT": "Message Subject",
+    "FIELD_MIN_10_CHARS": "This field requires a minimum of 10 characters *.",
+    "FIELD_MAX_50_CHARS": "This field requires a maximum of 50 characters *.",
+    "FIELD_MAX_200_CHARS": "This field requires a maximum of 200 characters *.",
+    "MESSAGE": "Message content",
+    "SEND": "Send",
+    "TOAST_TITLE": "Are you sure you want to send this message?",
+    "TOAST_SUMMARY": "Message sent",
+    "TOAST_DETAIL": "Message successfully sent to administrator!"
+  },
+  "JOURNAL": {
+    "FILTERS": "Filters",
+    "INCOMES": "Income in this month: ",
+    "EXPENSES": "Expense in this month: ",
+    "INCOMES_EXPENSES": "Income and Expense",
+    "BALANCE": "Balance: ",
+    "FILTER": {
+      "DATE_RANGE": "Select date range",
+      "DATE_RANGE_INFO": "Date range",
+      "EXPENSE": "Expense",
+      "INCOME": "Income",
+      "EXPENSE_TYPE_INFO": "Select type",
+      "EXPENSE_TYPE": "Type",
+      "SELECT_PAYMENT_METHOD": "Select payment method",
+      "PAYMENT_METHOD": "Payment method",
+      "SELECT_SHOP_METHOD": "Select shop method",
+      "SHOP_METHOD": "Shop method",
+      "AMOUNT_RANGE": "Amount range"
+    },
+    "TABLE": {
+      "DATE": "Date",
+      "METHOD": "Form",
+      "QUANTITY": "Quantity",
+      "PRICE": "Price",
+      "ACTIONS": "Actions"
+    },
+    "DELETE_TITLE": "Are you sure you want to delete this receipt?",
+    "DELETE_SUCCESS": "Receipt deleted",
+    "DELETE_FAIL": "Cannot delete this receipt, try again later...",
+    "SEARCH": "Search",
+    "EDIT_TOOLTIP": "Edit",
+    "DETAIL_TOOLTIP": "Details",
+    "DELETE_TOOLTIP": "Delete"
+  },
+  "PAYMENT_METHOD": {
+    "CHANGED": "Change name of payment method ended with success",
+    "ADDED": "Adding payment method ended with success",
+    "DELETED": "Payment method deleted",
+    "ADD": "Add new payment method",
+    "NAME_INFO": "Payment method name*",
+    "ADD_BUTTON": "Add",
+    "METHOD_NAMES": "Your payment methods",
+    "NAME": "Payment method name"
+  },
+  "SHOP_METHOD": {
+    "CHANGED": "Change name of shop method ended with success",
+    "ADDED": "Adding shop method ended with success",
+    "DELETED": "Shop method deleted",
+    "ADD": "Add new shop method",
+    "NAME_INFO": "Shop method name*",
+    "ADD_BUTTON": "Add",
+    "METHOD_NAMES": "Your shop methods",
+    "NAME": "Shop method name"
+  },
+  "EXPENSE": {
+    "GENERAL": {
+      "TITLE": "General Data",
+      "DATE": "Shopping date",
+      "PAYMENT_METHOD": "Payment method",
+      "SELECT_PAYMENT_METHOD": "Select payment method",
+      "SHOP_METHOD": "Shop method",
+      "SELECT_SHOP_METHOD": "Select shop method",
+      "PRICE_AND_CURRENCY": "Price and currency",
+      "PRICE": "Price",
+      "CURRENCY": "Currency",
+      "NOTE": "Note",
+      "ADD": "Add expense",
+      "EDIT": "Edit",
+      "EDIT_SUCCESS": "Expense edited successfully",
+      "EDIT_FAILURE": "Expense edit ended with fail"
+    },
+    "PRODUCT":{
+      "TITLE": "Add product",
+      "NAME": "Product name",
+      "QUANTITY": "Product quantity",
+      "PRICE": "Product price",
+      "CURRENCY": "Procuct currency",
+      "ADD": "Add product"
+    },
+    "NO_PRODUCTS": "The products in the receipt are displayed here, currently there is not a single one.",
+    "PRODUCT_NUMBER": "Product #{{number}}",
+    "ADDED": "Successfully added expense",
+    "ERROR": "Error occurred, try again later"
+  },
+  "INCOME": {
+    "TITLE": "General data",
+    "DATE": "Income date",
+    "PRODUCT_FILTER": {
+      "TITLE": "Add product",
+      "PRICE": "Product price",
+      "SELECT_PRICE": "Select product price",
+      "PRODUCT": "Product",
+      "SELECT_PRODUCT": "Select product",
+      "QUANTITY": "Quantity of given product"
+    },
+    "NOTE": "Note",
+    "ADD_INCOME": "Add income",
+    "ADD_INCOME_SUCCESS": "Income has been added",
+    "ADD_PRODUCT": "Add product",
+    "INCOME": "Income"
+  },
+  "EXPENSE_DETAIL": {
+    "EXPENSE": "Expense",
+    "PRICE": "Price",
+    "PAYMENT_FORM": "Payment form",
+    "SHOP_FORM": "Shop form",
+    "NOTE": "Note",
+    "LACK_NOTE": "Lack of note",
+    "PRODUCTS": "Products",
+    "QUANTITY": "Quantity",
+    "SUM": "Sum",
+    "OK": "Close"
+  },
+  "ADD_PRODUCT": {
+    "TITLE": "General Information",
+    "PRODUCT_NAME": "Product Name",
+    "TIME": "Reckoning",
+    "PRICE": "Price",
+    "ADD_PRICE": "Add price",
+    "ADD": "Add product",
+    "PRICE_IT": "Price #{{price}}",
+    "ADD_PRODUCT_SUCCESS": "Adding product ended with success!",
+    "NO_PRICES": "There are no defined prices for this product.",
+    "EDIT": "Edit"
+  },
+  "WAREHOUSE": {
+    "ACTIONS": "Actions",
+    "NAME": "Product name",
+    "TYPE": "Product type",
+    "PRICES": "Defined prices",
+    "PRICE": "Price",
+    "OPTIONS": "Additional options",
+    "ADD_PRODUCT": "Add product",
+    "FILTERING": "Filtering",
+    "PRODUCT_NAME": "Product name",
+    "PERIOD_TYPE": "Period type",
+    "PRODUCT_TYPE": "Product type",
+    "PRODUCT_ACTIVE": "Is product archival",
+    "SEARCH": "Search",
+    "CLEAR_FILTERS": "Clear filters",
+    "DELETE_TOOLTIP": "Delete product",
+    "EDIT_TOOLTIP": "Edit product",
+    "DETAIL_TOOLTIP": "Product details",
+    "DELETE_TITLE": "Are you sure you want to delete this product?",
+    "DELETE_SUCCESS": "Product deleted",
+    "DELETE_FAIL": "Cannot delete this product, try again later...",
+    "EDIT_SUCCESS": "Product changed",
+    "EDIT_FAIL": "Cannot change product",
+    "NO_PRODUCTS": "Currently co products available"
+  },
+  "SETTINGS": {
+    "TITLE": "User settings",
+    "AVATAR": {
+      "CHANGE": "Change avatar",
+      "TITLE": "Change avatar",
+      "CANCEL": "Cancel",
+      "AVATAR_UPLOADED": "Avatar uploaded."
+    },
+    "EMAIL": {
+      "TITLE": "Change email",
+      "NEW_EMAIL": "New email",
+      "CANCEL": "Cancel",
+      "CHANGE": "Change email",
+      "SUCCESS": "Email with confirmation link has been send"
+    },
+    "PASSWORD": {
+      "TITLE": "Change password",
+      "PASSWORD": "Actual password",
+      "NEW_PASSWORD": "New password",
+      "REPEAT_PASSWORD": "Repeat new password",
+      "CANCEL": "Cancel",
+      "CHANGE": "Change password",
+      "SUCCESS": "Password has been changed"
+    },
+    "NAME": "Name",
+    "LASTNAME": "Lastname",
+    "COMPANY_NAME": "Company name",
+    "SAVE": "Save changes",
+    "CHANGED": "Changes have been saved"
+  },
+  "REPORT": {
+    "DIALOG": {
+      "TITLE": "Generate month report",
+      "GENERATE": "Generate",
+      "CANCEL": "Cancel",
+      "MONTH": "Select month and year"
+    },
+    "TITLE": "Report incomes/expenses",
+    "INCOMES": "Incomes",
+    "EXPENSES": "Expenses",
+    "TITLE_HEADER": "Detailed information",
+    "INCOMES_SUM": "Incomes sum",
+    "EXPENSES_SUM": "Expenses sum",
+    "NO_DATA_FOR_DIAGRAM": "You do not have any data to generate this chart",
+    "BY_TYPE_OF_PRODUCT": "Data based on product type",
+    "BY_TYPE_OF_PERIOD": "Data based on period type",
+    "BY_PRODUCT": "Data based on product",
+    "BY_PAYMENT_METHOD": "Payment type details",
+    "BY_SHOP_METHOD": "Data on the type of purchases",
+    "BALANCE": "Balance this month: "
+  },
+  "UNAUTHORIZED": {
+    "INFO": "You do not have access to this page. Please log in or create an account first",
+    "LOGIN": "Log in",
+    "REGISTER": "Create an account",
+    "HOME": "Homepage"
+  },
+  "PAGE_NOT_FOUND": {
+    "INFO": "I think you're lost?",
+    "HOME": "Homepage"
+  },
+  "FROM": "From",
+  "TO": "To",
+  "YES": "Yes",
+  "NO": "No",
+  "ERROR": "Error occurred",
+  "SUCCESS": "Operation ended with success"
+}
+

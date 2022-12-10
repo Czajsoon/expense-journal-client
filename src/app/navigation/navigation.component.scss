@@ -1,0 +1,80 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-container{
+  height: 94%;
+  width: 100%;
+}
+
+.example-sidenav{
+  width: 50%;
+  background: #262626;
+}
+
+.simple-button{
+  padding: 2px 8px;
+  font-size: medium;
+  color: WHITE;
+  font-family: ARIALHelvetica, sans-serif;
+}
+
+.mobile-button{
+  color: WHITE;
+  width: 90%;
+}
+
+.credential-button{
+  padding: 2px 8px;
+  font-size: small;
+}
+
+.navbar {
+  background: #262626;
+}
+
+.title{
+  color: white;
+}
+
+.burger{
+  color: white;
+}
+
+.activate-route {
+  color: black;
+  background-color: white;
+}
+
+.activate-route:hover{
+  color: black;
+  background-color: white;
+}
+
+.activate-login{
+  display: none;
+}
+
+.nav{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.navigation-bar{
+  z-index: 8;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-top: 10px;
+  height: 50px;
+  background: #262626;
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+

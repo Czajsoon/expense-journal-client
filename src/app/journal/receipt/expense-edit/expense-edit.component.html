@@ -1,0 +1,183 @@
+<div class="container-fluid justify-content-center text-center mt-3">
+  <div class="col d-none d-md-block">
+    <div class="row" [formGroup]="expenseForm">
+      <div class="col-8">
+        <p-card header="{{ 'EXPENSE.GENERAL.TITLE' | translate }}" class="h-50">
+          <div class="row">
+            <div class="col">
+              <h3><b>{{ 'EXPENSE.GENERAL.DATE' | translate }}</b></h3>
+              <p-calendar placeholder="{{ 'EXPENSE.GENERAL.DATE' | translate }}" dateFormat="dd.mm.yy," [showTime]="true" dataType="string"
+                          [showSeconds]="false"  styleClass="w-100" formControlName="dateTime"
+                          inputStyleClass="text-center"></p-calendar>
+              <div class="spacer"></div>
+              <h3><b>{{ 'EXPENSE.GENERAL.PAYMENT_METHOD' | translate }}</b></h3>
+              <p-dropdown [options]="paymentMethods" placeholder="{{ 'EXPENSE.GENERAL.SELECT_PAYMENT_METHOD' | translate }}"
+                          optionLabel="name" [filter]="true" filterBy="name"
+                          formControlName="paymentMethodId" optionValue="id"
+                          [showClear]="true" styleClass="w-100"></p-dropdown>
+            </div>
+            <div class="col">
+              <h3><b>{{ 'EXPENSE.GENERAL.SHOP_METHOD' | translate }}</b></h3>
+              <p-dropdown [options]="shopMethods" placeholder="{{ 'EXPENSE.GENERAL.SELECT_SHOP_METHOD' | translate }}"
+                          optionLabel="name" [filter]="true" filterBy="name" formControlName="shopMethodId" optionValue="id"
+                          [showClear]="true" styleClass="w-100"></p-dropdown>
+              <div class="row" *ngIf="expenseItems.length === 0">
+                <div class="spacer"></div>
+                <h3><b>{{ 'EXPENSE.GENERAL.PRICE_AND_CURRENCY' | translate }}</b></h3>
+                <div class="col">
+                  <p-inputNumber [style]="{'width':'100%'}" placeholder="{{ 'EXPENSE.GENERAL.PRICE' | translate }}"
+                                 formControlName="amount" mode="decimal" [maxFractionDigits]="2"></p-inputNumber>
+                </div>
+                <div class="col">
+                  <p-dropdown [style]="{'width':'100%'}" [options]="currencies"
+                              optionLabel="currencyName" formControlName="currencyCode" optionValue="currencyCode"
+                              placeholder="{{ 'EXPENSE.GENERAL.CURRENCY' | translate }}" [showClear]="true"></p-dropdown>
+                </div>
+              </div>
+            </div>
+            <div class="spacer"></div>
+            <h3><b>{{ 'EXPENSE.GENERAL.NOTE' | translate }}</b></h3>
+            <input pInputTextarea placeholder="{{ 'EXPENSE.GENERAL.NOTE' | translate }}" formControlName="note">
+            <div class="spacer"></div>
+            <p-button label="{{ 'EXPENSE.GENERAL.EDIT' | translate }}" [disabled]="expenseForm.invalid || !expenseForm.touched" (click)="edit()"></p-button>
+          </div>
+        </p-card>
+      </div>
+      <div class="col-4">
+        <p-card [formGroup]="expenseItemForm" header="{{ 'EXPENSE.PRODUCT.TITLE' | translate }}">
+          <div class="row" >
+            <div class="col">
+              <h3><b>{{ 'EXPENSE.PRODUCT.NAME' | translate }}</b></h3>
+              <input pInputText placeholder="{{ 'EXPENSE.PRODUCT.NAME' | translate }}" formControlName="name">
+              <div class="spacer"></div>
+              <h3><b>{{ 'EXPENSE.PRODUCT.PRICE' | translate }}</b></h3>
+              <p-inputNumber  placeholder="{{ 'EXPENSE.PRODUCT.PRICE' | translate }}" formControlName="amount"></p-inputNumber>
+            </div>
+            <div class="col">
+              <h3><b>{{ 'EXPENSE.PRODUCT.QUANTITY' | translate }}</b></h3>
+              <p-inputNumber  placeholder="{{ 'EXPENSE.PRODUCT.QUANTITY' | translate }}" formControlName="quantity"></p-inputNumber>
+              <div class="spacer"></div>
+              <h3><b>{{ 'EXPENSE.PRODUCT.CURRENCY' | translate }}</b></h3>
+              <p-dropdown autoWidth="false"  [options]="currencies" placeholder="{{ 'EXPENSE.PRODUCT.CURRENCY' | translate }}"
+                          optionLabel="currencyName" formControlName="currencyCode" optionValue="currencyCode"
+                          [showClear]="true"></p-dropdown>
+            </div>
+            <div class="spacer" ></div>
+            <div style="padding-bottom: 45px"></div>
+            <p-button label="{{ 'EXPENSE.PRODUCT.ADD' | translate }}" [disabled]="expenseItemForm.invalid" (click)="addItem()"></p-button>
+          </div>
+        </p-card>
+      </div>
+    </div>
+    <div class="spacer"></div>
+  </div>
+  <div class="d-block d-sm-block d-md-none">
+    <div class="col">
+      <p-accordion [formGroup]="expenseForm">
+        <p-accordionTab header="{{ 'EXPENSE.GENERAL.TITLE' | translate }}" [selected]="true">
+          <div class="col">
+            <h3><b>{{ 'EXPENSE.GENERAL.DATE' | translate }}</b></h3>
+            <p-calendar placeholder="{{ 'EXPENSE.GENERAL.DATE' | translate }}" dateFormat="dd.mm.yy," [showTime]="true" dataType="string"
+                        [showSeconds]="false" inputId="time" styleClass="w-100" formControlName="dateTime"
+                        inputStyleClass="text-center"></p-calendar>
+            <div class="spacer"></div>
+            <h3><b>{{ 'EXPENSE.GENERAL.PAYMENT_METHOD' | translate }}</b></h3>
+            <p-dropdown [options]="paymentMethods" placeholder="{{ 'EXPENSE.GENERAL.SELECT_PAYMENT_METHOD' | translate }}"
+                        optionLabel="name" [filter]="true" filterBy="name"
+                        formControlName="paymentMethodId" optionValue="id"
+                        [showClear]="true" styleClass="w-100"></p-dropdown>
+          </div>
+          <div class="col">
+            <h3><b>{{ 'EXPENSE.GENERAL.SHOP_METHOD' | translate }}</b></h3>
+            <p-dropdown [options]="shopMethods" placeholder="{{ 'EXPENSE.GENERAL.SELECT_SHOP_METHOD' | translate }}"
+                        optionLabel="name" [filter]="true" filterBy="name" formControlName="shopMethodId" optionValue="id"
+                        [showClear]="true" styleClass="w-100"></p-dropdown>
+            <div class="row" *ngIf="expenseItems.length === 0">
+              <div class="spacer"></div>
+              <h3><b>{{ 'EXPENSE.GENERAL.PRICE_AND_CURRENCY' | translate }}</b></h3>
+              <div class="col">
+                <p-inputNumber [style]="{'width':'100%'}" mode="decimal" [maxFractionDigits]="2" placeholder="{{ 'EXPENSE.GENERAL.PRICE' | translate }}"
+                               formControlName="amount"></p-inputNumber>
+              </div>
+              <div class="col">
+                <p-dropdown [style]="{'width':'100%'}" [options]="currencies"
+                            optionLabel="currencyName" formControlName="currencyCode" optionValue="currencyCode"
+                            placeholder="{{ 'EXPENSE.GENERAL.CURRENCY' | translate }}" [showClear]="true"></p-dropdown>
+              </div>
+            </div>
+          </div>
+          <div class="spacer"></div>
+          <h3><b>{{ 'EXPENSE.GENERAL.NOTE' | translate }}</b></h3>
+          <input pInputTextarea placeholder="{{ 'EXPENSE.GENERAL.NOTE' | translate }}" formControlName="note">
+          <div class="spacer"></div>
+          <p-button label="{{ 'EXPENSE.GENERAL.EDIT' | translate }}" [disabled]="expenseForm.invalid" (click)="edit()"></p-button>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+    <div class="col">
+      <p-accordion>
+        <p-accordionTab header="{{ 'EXPENSE.PRODUCT.TITLE' | translate }}" [selected]="false">
+          <div class="row" [formGroup]="expenseItemForm">
+            <div class="col">
+              <h3><b>{{ 'EXPENSE.PRODUCT.NAME' | translate }}</b></h3>
+              <input pInputText placeholder="{{ 'EXPENSE.PRODUCT.NAME' | translate }}" formControlName="name">
+              <div class="spacer"></div>
+              <h3><b>{{ 'EXPENSE.PRODUCT.PRICE' | translate }}</b></h3>
+              <p-inputNumber inputStyleClass="w-100" placeholder="{{ 'EXPENSE.PRODUCT.PRICE' | translate }}" formControlName="amount"></p-inputNumber>
+            </div>
+            <div class="col">
+              <h3><b>{{ 'EXPENSE.PRODUCT.QUANTITY' | translate }}</b></h3>
+              <p-inputNumber  placeholder="{{ 'EXPENSE.PRODUCT.QUANTITY' | translate }}" formControlName="quantity"></p-inputNumber>
+              <div class="spacer"></div>
+              <h3><b>{{ 'EXPENSE.PRODUCT.CURRENCY' | translate }}</b></h3>
+              <p-dropdown [options]="currencies" placeholder="{{ 'EXPENSE.PRODUCT.CURRENCY' | translate }}"
+                          optionLabel="currencyName" formControlName="currencyCode" optionValue="currencyCode"
+                          [showClear]="true"></p-dropdown>
+            </div>
+            <div class="spacer" ></div>
+            <div style="padding-bottom: 45px"></div>
+            <p-button label="{{ 'EXPENSE.PRODUCT.ADD' | translate }}" [disabled]="expenseItemForm.invalid" (click)="addItem()"></p-button>
+          </div>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+  </div>
+  <div [formGroup]="expenseForm">
+    <div class="row" formArrayName="expenseItems">
+      <div class="col-md-3 col-sm-12" *ngFor="let item of expenseItems.controls ;let i = index">
+        <p-card [formGroupName]="i" header="{{ 'EXPENSE.PRODUCT_NUMBER' | translate: {number: i+1} }}">
+          <div class="row">
+            <div class="col">
+              <h3><b>{{ 'EXPENSE.PRODUCT.NAME' | translate }}</b></h3>
+              <input pInputText formControlName="name" placeholder="{{ 'EXPENSE.PRODUCT.NAME' | translate }}">
+              <div class="spacer"></div>
+              <h3><b>{{ 'EXPENSE.PRODUCT.PRICE' | translate }}</b></h3>
+              <p-inputNumber mode="currency" currency="{{getCurrencyFromForm(item.get('currencyCode').value).currencyCode}}" placeholder="{{ 'EXPENSE.PRODUCT.PRICE' | translate }}"
+                             locale="{{getCurrencyFromForm(item.get('currencyCode').value).currencyLocale}}" formControlName="amount"></p-inputNumber>
+            </div>
+            <div class="col">
+              <h3><b>{{ 'EXPENSE.PRODUCT.QUANTITY' | translate }}</b></h3>
+              <p-inputNumber formControlName="quantity" placeholder="{{ 'EXPENSE.PRODUCT.QUANTITY' | translate }}"></p-inputNumber>
+              <div class="spacer"></div>
+              <h3><b>{{ 'EXPENSE.PRODUCT.CURRENCY' | translate }}</b></h3>
+              <p-dropdown [options]="currencies" placeholder="{{ 'EXPENSE.PRODUCT.CURRENCY' | translate }}"
+                          optionLabel="currencyName" formControlName="currencyCode" optionValue="currencyCode"
+                          [showClear]="true"></p-dropdown>
+            </div>
+          </div>
+          <div class="spacer"></div>
+          <button pButton pRipple type="button" (click)="deleteProduct(i)"
+                  icon="pi pi-trash"
+                  class="p-button-rounded p-button-danger"></button>
+        </p-card>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div *ngIf="expenseItems.length === 0">
+      <h3><b>{{ 'EXPENSE.NO_PRODUCTS' | translate }}</b></h3>
+    </div>
+    <div class="spacer"></div>
+  </div>
+</div>
+<p-toast class="d-none d-md-block" position="top-right"></p-toast>
+<p-toast class="d-block d-md-none" styleClass="toast-mobile" position="top-center"></p-toast>

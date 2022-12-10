@@ -1,0 +1,58 @@
+.income-grid{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 3fr;
+  padding: 2em;
+  grid-template-areas:
+    "a a"
+    "b b";
+  gap: 2em;
+}
+
+.general-grid{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 100%;
+  gap: 0.5em;
+}
+
+.add-product-grid{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  padding: 0.4em;
+  grid-template-areas:
+    "a a"
+    "b b"
+    "c c";
+  gap: 0.7em;
+}
+
+.add-product-grid-mobile{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+  padding: 0.4em;
+  gap: 0.7em;
+}
+
+.product-cell{
+  display: grid;
+}
+
+.product-cell.product{
+  grid-area: a;
+}
+
+.product-cell.submit{
+  grid-area: c;
+}
+
+.income-cell{
+  display: grid;
+  padding-bottom: 2em;
+}
+
+.income-cell.products{
+  grid-area: b;
+}

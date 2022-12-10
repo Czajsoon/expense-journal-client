@@ -1,0 +1,154 @@
+<app-product-detail [display]="displayDetailModal" [productEvent]="productEvent" (closeEvent)="closeDetail($event)"></app-product-detail>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<div class="d-none d-md-block">
+  <div class="grid">
+    <p-card class="filter-grid  text-center" header="{{ 'WAREHOUSE.OPTIONS' | translate }}" [formGroup]="filterForm">
+      <h2 class="font-weight-bold">{{ 'WAREHOUSE.ADD_PRODUCT' | translate }}</h2>
+      <p-button class="filter-grid-cell" label="{{ 'WAREHOUSE.ADD_PRODUCT' | translate }}" (onClick)="goToAddProduct()"></p-button>
+      <h2 class="font-weight-bold">{{ 'WAREHOUSE.FILTERING' | translate }}</h2>
+      <div class="filter-grid-cell" >
+        <label class="pb-2">{{ 'WAREHOUSE.PRODUCT_NAME' | translate }}</label>
+        <input pInputText placeholder="{{ 'WAREHOUSE.PRODUCT_NAME' | translate }}" class="text-center" formControlName="name">
+      </div>
+      <div class="filter-grid-cell">
+        <label class="pb-2">{{ 'WAREHOUSE.PERIOD_TYPE' | translate }}</label>
+        <p-dropdown [options]="type" [filter]="true" filterBy="translation" formControlName="period"
+                    placeholder="{{ 'WAREHOUSE.PERIOD_TYPE' | translate }}" optionValue="name"
+                    optionLabel="translation" styleClass="w-100" [showClear]="true"></p-dropdown>
+      </div>
+      <div class="filter-grid-cell">
+        <label class="pb-2">{{ 'WAREHOUSE.PRODUCT_TYPE' | translate }}</label>
+        <p-dropdown [options]="productTypes"  [filter]="true" filterBy="translation" formControlName="type"
+                    placeholder="{{ 'WAREHOUSE.PRODUCT_TYPE' | translate }}" optionValue="name"
+                    optionLabel="translation" styleClass="w-100" [showClear]="true"></p-dropdown>
+      </div>
+      <div class="filter-grid-cell">
+        <label class="pb-2">{{ 'WAREHOUSE.PRODUCT_ACTIVE' | translate }}</label>
+        <p-dropdown [options]="activeProducts"  [filter]="true" filterBy="translation" formControlName="active"
+                    placeholder="{{ 'WAREHOUSE.PRODUCT_ACTIVE' | translate }}" optionValue="value"
+                    optionLabel="name" styleClass="w-100" [showClear]="true"></p-dropdown>
+      </div>
+      <p-button class="filter-grid-cell" label="{{ 'WAREHOUSE.SEARCH' | translate }}" (onClick)="search()"></p-button>
+      <p-button class="filter-grid-cell p-button-danger" label="{{ 'WAREHOUSE.CLEAR_FILTERS' | translate }}" (onClick)="clearFilterForm()"></p-button>
+    </p-card>
+    <div *ngIf="productsTable.products.length !== 0">
+      <p-table [value]="productsTable.products" class="d-none d-md-block" styleClass="p-datatable" responsiveLayout="scroll">
+        <ng-template pTemplate="header" >
+          <tr>
+            <th class="text-center">{{ 'WAREHOUSE.NAME' | translate }}</th>
+            <th class="text-center">{{ 'WAREHOUSE.PRICES' | translate }}</th>
+            <th class="text-center">{{ 'WAREHOUSE.TYPE' | translate }}</th>
+            <th class="text-center">{{ 'WAREHOUSE.ACTIONS' | translate }}</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr *ngIf="!loadingTable">
+            <td class="text-center">
+              {{product.name}}
+            </td>
+            <td class="text-center">
+              {{product.price.length}}
+            </td>
+            <td class="text-center">
+              <p-tag styleClass="mr-2" severity="info" value="{{product.type.translation}}" [rounded]="true"></p-tag>
+              <p-tag styleClass="mr-2" severity="warning" value="{{product.period.translation}}" [rounded]="true"></p-tag>
+            </td>
+            <td class="text-center">
+              <button pButton pRipple pTooltip="{{ 'WAREHOUSE.DELETE_TOOLTIP' | translate }}" tooltipPosition="bottom" type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-sm" (click)="deleteProduct(product.id)"></button>
+              <button pButton pRipple pTooltip="{{ 'WAREHOUSE.EDIT_TOOLTIP' | translate }}" tooltipPosition="bottom" type="button" icon="pi pi-pencil" class="p-button-rounded p-button-help p-button-sm" (click)="goToEditProduct(product.id)"></button>
+              <button pButton pRipple pTooltip="{{ 'WAREHOUSE.DETAIL_TOOLTIP' | translate }}" tooltipPosition="bottom" type="button" icon="pi pi-info-circle" class="p-button-rounded p-button-info p-button-sm" (click)="showDetail(product)"></button>
+            </td>
+          </tr>
+          <tr *ngIf="loadingTable" >
+            <td class="text-center"><p-skeleton height="2rem"></p-skeleton></td>
+            <td class="text-center"><p-skeleton height="2rem"></p-skeleton></td>
+            <td class="text-center"><p-skeleton height="2rem"></p-skeleton></td>
+            <td class="text-center"><p-skeleton height="2rem"></p-skeleton></td>
+          </tr>
+        </ng-template>
+      </p-table>
+      <p-paginator [first]="first" (onPageChange)="paginate($event)" *ngIf="!loadingTable && productsTable.products.length >= 5"
+                   [rows]="5" [totalRecords]="productsTable.totalPages"></p-paginator>
+    </div>
+    <div *ngIf="productsTable.products.length === 0" class="text-center">
+      <h2><b>{{ 'WAREHOUSE.NO_PRODUCTS' | translate }}</b></h2>
+      <p-button class="filter-grid-cell" label="{{ 'WAREHOUSE.ADD_PRODUCT' | translate }}" (click)="goToAddProduct()"></p-button>
+    </div>
+  </div>
+</div>
+<div class="grid-mobile d-block d-sm-block d-md-none">
+  <p-accordion class="text-center" [formGroup]="filterForm">
+      <p-accordionTab header="{{ 'WAREHOUSE.OPTIONS' | translate }}" [selected]="false">
+        <div class="mobile-filter-grid">
+          <h2 class="font-weight-bold">{{ 'WAREHOUSE.ADD_PRODUCT' | translate }}</h2>
+          <p-button class="filter-grid-cell" label="{{ 'WAREHOUSE.ADD_PRODUCT' | translate }}" (click)="goToAddProduct()"></p-button>
+          <h2 class="font-weight-bold">{{ 'WAREHOUSE.FILTERING' | translate }}</h2>
+          <div class="filter-grid-cell">
+            <label class="pb-2">{{ 'WAREHOUSE.PRODUCT_NAME' | translate }}</label>
+            <input  pInputText placeholder="{{ 'WAREHOUSE.PRODUCT_NAME' | translate }}" class="text-center" formControlName="name">
+          </div>
+          <div class="filter-grid-cell">
+            <label class="pb-2">{{ 'WAREHOUSE.PERIOD_TYPE' | translate }}</label>
+            <p-dropdown [options]="type" [filter]="true" filterBy="translation" formControlName="period"
+                        placeholder="{{ 'WAREHOUSE.PERIOD_TYPE' | translate }}" optionValue="name"
+                        optionLabel="translation" styleClass="w-100" [showClear]="true"></p-dropdown>
+          </div>
+          <div class="filter-grid-cell">
+            <label class="pb-2">{{ 'WAREHOUSE.PRODUCT_TYPE' | translate }}</label>
+            <p-dropdown [options]="productTypes"  [filter]="true" filterBy="translation" formControlName="type"
+                        placeholder="{{ 'WAREHOUSE.PRODUCT_TYPE' | translate }}" optionValue="name"
+                        optionLabel="translation" styleClass="w-100" [showClear]="true"></p-dropdown>
+          </div>
+          <div class="filter-grid-cell">
+            <label class="pb-2">{{ 'WAREHOUSE.PRODUCT_ACTIVE' | translate }}</label>
+            <p-dropdown [options]="activeProducts"  [filter]="true" filterBy="translation" formControlName="active"
+                        placeholder="{{ 'WAREHOUSE.PRODUCT_ACTIVE' | translate }}" optionValue="value"
+                        optionLabel="name" styleClass="w-100" [showClear]="true"></p-dropdown>
+          </div>
+          <p-button class="filter-grid-cell" label="{{ 'WAREHOUSE.SEARCH' | translate }}" (onClick)="search()"></p-button>
+          <p-button class="filter-grid-cell p-button-danger" label="{{ 'WAREHOUSE.CLEAR_FILTERS' | translate }}" (onClick)="clearFilterForm()"></p-button>
+        </div>
+      </p-accordionTab>
+    </p-accordion>
+  <div class="pb-5">
+    <div *ngIf="productsTable.products.length !== 0">
+      <p-table [value]="productsTable.products"  styleClass="p-datatable" responsiveLayout="scroll">
+        <ng-template pTemplate="header" >
+          <tr>
+            <th class="text-center">{{ 'WAREHOUSE.ACTIONS' | translate }}</th>
+            <th class="text-center">{{ 'WAREHOUSE.TYPE' | translate }}</th>
+            <th class="text-center">{{ 'WAREHOUSE.NAME' | translate }}</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr *ngIf="!loadingTable">
+            <td class="text-center">
+              <button pButton pRipple  type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-sm" (click)="deleteProduct(product.id)"></button>
+              <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-help p-button-sm" (click)="goToEditProduct(product.id)"></button>
+              <button pButton pRipple type="button" icon="pi pi-info-circle" class="p-button-rounded p-button-info p-button-sm" (click)="showDetail(product)"></button>
+            </td>
+            <td class="text-center">
+              <p-tag styleClass="mr-2" severity="info" value="{{product.type.translation}}" [rounded]="true"></p-tag>
+              <p-tag styleClass="mr-2" severity="warning" value="{{product.period.translation}}" [rounded]="true"></p-tag>
+            </td>
+            <td class="text-center">
+              {{product.name}}
+            </td>
+          </tr>
+          <tr *ngIf="loadingTable" >
+            <td class="text-center"><p-skeleton height="2rem"></p-skeleton></td>
+            <td class="text-center"><p-skeleton height="2rem"></p-skeleton></td>
+            <td class="text-center"><p-skeleton height="2rem"></p-skeleton></td>
+          </tr>
+        </ng-template>
+      </p-table>
+      <p-paginator [first]="first" (onPageChange)="paginate($event)" *ngIf="!loadingTable && productsTable.products.length >= 5" [rows]="5" [totalRecords]="productsTable.totalPages"></p-paginator>
+    </div>
+    <div *ngIf="productsTable.products.length === 0" class="text-center">
+      <h2><b>{{ 'WAREHOUSE.NO_PRODUCTS' | translate }}</b></h2>
+      <p-button class="filter-grid-cell" label="{{ 'WAREHOUSE.ADD_PRODUCT' | translate }}" (click)="goToAddProduct()"></p-button>
+    </div>
+  </div>
+</div>
+<p-toast class="d-none d-md-block" position="top-right"></p-toast>
+<p-toast class="d-block d-md-none" styleClass="toast-mobile" position="top-center"></p-toast>
